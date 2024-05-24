@@ -1,0 +1,42 @@
+<form action="" [formGroup]="binForm" class="max-w-lg mx-auto p-8 bg-white shadow-md rounded">
+    <h1 class="text-2xl font-bold mb-6">Create Code Bin</h1>
+    <div class="mb-4">
+        <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+        <input 
+            id="title"
+            type="text" 
+            [formControl]="title" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+        <p 
+            [hidden]="title.valid||title.untouched" 
+            class="text-red-500 text-xs italic mt-2"
+        >
+            Title is required.
+        </p>
+    </div>
+    <div class="mb-6">
+        <label for="code" class="block text-gray-700 text-sm font-bold mb-2">Code Snippet</label>
+        <textarea 
+            id="code" 
+            [formControl]="code" 
+            placeholder="Enter code snippet"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-blue-950 leading-tight focus:outline-none focus:shadow-outline h-48"
+        ></textarea>
+        <p 
+            [hidden]="code.valid||code.untouched" 
+            class="text-red-500 text-xs italic mt-2"
+        >
+            Code area can't be empty.
+        </p>
+    </div>
+    <div class="flex items-center justify-between">
+        <button 
+            (click)="save()" 
+            [disabled]="binForm.invalid"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+        >
+            Create
+        </button>
+    </div>
+</form>

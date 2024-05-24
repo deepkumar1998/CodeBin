@@ -1,0 +1,14 @@
+<nav class="flex justify-between bg-black h-[3rem]">
+    <h1 class="text-white text-2xl px-4 pt-2 hover:cursor-pointer " routerLink="/">CodeBin</h1>
+    <ul class="flex space-x-4 mr-6">
+        <li class="text-white text-md  pt-2 hover:cursor-pointer" routerLink="/createbin" routerLinkActive="active">Create Bin</li>
+        @if (authService.getUid()) {
+            <li class="text-white text-md  pt-2 hover:cursor-pointer" (click)="authService.logout()">LogOut</li>
+        }
+        @else{
+        <li class="text-white text-md  pt-2 hover:cursor-pointer" routerLink="/login" routerLinkActive="active">Login</li>
+        <li class="text-white text-md pt-2 hover:cursor-pointer" routerLink="/signup" routerLinkActive="active">Signup</li>
+    }
+    <li class="text-white text-md pt-2 hover:cursor-pointer" routerLink="/about" routerLinkActive="active">About</li>
+    </ul>
+</nav>

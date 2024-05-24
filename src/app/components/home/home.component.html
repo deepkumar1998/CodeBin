@@ -1,0 +1,12 @@
+<div class="p-4 bg-gray-100 rounded-lg shadow-md">
+    <ul class="list-disc list-inside">
+        @if (items.length == 0) {
+            <li class="text-gray-500">No Data Found</li>
+        }
+        @for (item of items; track item.id) {
+            <li class="my-2">
+                <a [routerLink]="['/snippet', item.id]" class="text-blue-600 hover:underline">{{item.title}}</a>
+            </li>
+        }
+    </ul>
+</div>
